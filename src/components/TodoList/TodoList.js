@@ -7,6 +7,7 @@ const TodoList = () => {
     return(
         <View style={styles.container}>
             <Todo todo="Todo 1"></Todo>
+            <Todo todo="Todo 1" todoComplete></Todo>
         </View>
     )
 }
