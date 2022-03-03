@@ -8,11 +8,13 @@ import Button from '../Button'
 //Styles
 import styles from './AddTodo.styles'
 
-const AddTodo = () => {
+const AddTodo = ({setTextInput,handleAddTodoButton,inputValue}) => {
+
+  
     return (
         <View style={styles.container}>
-            <Input/>
-            <Button/>
+            <Input inputValue={inputValue} setTextInput={setTextInput}/>
+            <Button handleAddTodoButton={handleAddTodoButton}/>
         </View>
     )
 }

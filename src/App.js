@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 //React native components
 import {
@@ -13,18 +13,27 @@ import {
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo'
 
+
 const App = () => {
+  const [todos, setTodos] = useState([])
+  const [textInput, setTextInput] = useState(null)
+
+  const handleAddTodoButton = (e) => {
+    setTodos(todo => [...todo, textInput])
+    setTextInput('')
+  }
+
   return (
     <SafeAreaView style={style.container}>
       <View style={style.wrapper}>
-        <View>
+        <View style={{flex:1}}>
           <View style={style.todoCount}>
             <Text style={style.title}>Todo List</Text>
             <Text style={style.count}>0</Text>
           </View>
-          <TodoList />
+          <TodoList todos={todos}/>
         </View>
-        <AddTodo />
+        <AddTodo handleAddTodoButton={handleAddTodoButton} setTextInput={setTextInput} inputValue={textInput}/>
       </View>
     </SafeAreaView>
   )
